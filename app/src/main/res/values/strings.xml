@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">InToDeep</string>
+    <string name="email">E-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="connect">Connexion</string>
+
 </resources>
