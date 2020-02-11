@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">InToDeep</string>
+    <string name="map_button_string">map content preview</string>
+    <string name="title_activity_maps">Map</string>>
 </resources>
