@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        switchActivityButton.setOnClickListener {
+        switchActivityLoadingButton.setOnClickListener {
             startActivity(Intent(this, loading::class.java))
         }
     }

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">InToDeep</string>
-    <string name="switch_activity_button">switch activity</string>
+    <string name="switch_activity_button">switch to loading activity preview</string>
     <string name="text_second_loading">brace yourself !</string>
     <string name="text_title_loading">Going into Deep !</string>
 </resources>
