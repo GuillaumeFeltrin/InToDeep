@@ -51,7 +51,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
         mMap.setInfoWindowAdapter(customInfoWindow)
 
         val marker = mMap.addMarker(markerOption)
+
         marker.showInfoWindow()
+
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
     }
 }

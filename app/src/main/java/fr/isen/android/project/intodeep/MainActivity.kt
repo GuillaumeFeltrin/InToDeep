@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         map_button.setOnClickListener {
-            startActivity(Intent(this, MapsActivity::class.java))
+            startActivity(Intent(this, GoogleMapInfoWindowActivity::class.java))
         }
 
         buttonLogin.setOnClickListener {

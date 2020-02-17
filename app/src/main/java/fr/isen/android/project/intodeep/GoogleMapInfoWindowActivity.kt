@@ -17,8 +17,8 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_google_map_info_window)
-
+        setContentView(R.layout.activity_maps)
+        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
@@ -46,7 +46,6 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
         val customInfoWindow = CustomInfoWindowGoogleMap(this)
-
         mMap!!.setInfoWindowAdapter(customInfoWindow)
 
         val marker = mMap!!.addMarker(markerOptions)

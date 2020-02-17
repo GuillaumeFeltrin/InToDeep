@@ -22,10 +22,12 @@
         android:id="@+id/marker_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="280dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="272dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/marker_picture"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Titre" />
 
@@ -33,10 +35,12 @@
         android:id="@+id/marker_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="284dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="276dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/marker_picture"
         app:layout_constraintTop_toBottomOf="@+id/marker_title"
         tools:text="sub" />
 
@@ -44,9 +48,13 @@
         android:id="@+id/marker_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="320dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="272dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/marker_subtitle"
         tools:text="descri" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
