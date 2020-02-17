@@ -1,57 +1,58 @@
 package fr.isen.android.project.intodeep
 
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.Marker
 
+class GoogleMapInfoWindowActivity : AppCompatActivity(), OnMapReadyCallback {
 
-class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
-
-    private lateinit var mMap: GoogleMap
-
-
-
+    private var mMap: GoogleMap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_maps)
-        // Obtain the SupportMapFragment and get notified when the map is ready to be used.
+        setContentView(R.layout.activity_google_map_info_window)
+
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
     }
 
+
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        //creation de l'icon
 
-        // Add a marker in Sydney and move the camera
-        val sydney = LatLng(-34.0, 151.0)
-        val markerOption = MarkerOptions()
-        markerOption.position(sydney).
-            title("Marker in Sydney").
-            snippet("ceci est une description")
+        mMap!!.uiSettings.isZoomControlsEnabled = true
+        mMap!!.setMinZoomPreference(11f)
+
+        val islamabad = LatLng(33.738045, 73.084488)
+
+        val markerOptions = MarkerOptions()
+        markerOptions.position(islamabad)
+            .title("Location Details")
+            .snippet("I am custom Location Marker.")
+            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
 
         val info = InfoWindowData("title",
             "subtitle",
             "description"
-        )
+            )
+
 
         val customInfoWindow = CustomInfoWindowGoogleMap(this)
 
-        mMap.setInfoWindowAdapter(customInfoWindow)
+        mMap!!.setInfoWindowAdapter(customInfoWindow)
 
-        val marker = mMap.addMarker(markerOption)
+        val marker = mMap!!.addMarker(markerOptions)
+        marker.tag = info
         marker.showInfoWindow()
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+
+        mMap!!.moveCamera(CameraUpdateFactory.newLatLng(islamabad))
     }
 }
