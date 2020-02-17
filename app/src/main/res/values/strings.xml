@@ -3,4 +3,8 @@
     <string name="map_button_string">map content preview</string>
     <string name="title_activity_maps">Map</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDdzyDKKXhzXn9fiUBJfNjo-6VGGweVMK8</string>
+    <string name="email">E-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="connect">Connexion</string>
+    <string name="request_client_id">521908361420-1hacja3m1g23geukrkotue8qojko5m6b.apps.googleusercontent.com</string>
 </resources>
