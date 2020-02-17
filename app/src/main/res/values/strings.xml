@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">InToDeep</string>
     <string name="map_button_string">map content preview</string>
-    <string name="title_activity_maps">Map</string>>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDdzyDKKXhzXn9fiUBJfNjo-6VGGweVMK8</string>
 </resources>
