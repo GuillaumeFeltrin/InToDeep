@@ -7,7 +7,7 @@
     <string name="password">Mot de passe</string>
     <string name="connect">Connexion</string>
     <string name="request_client_id">521908361420-1hacja3m1g23geukrkotue8qojko5m6b.apps.googleusercontent.com</string>
-    <string name="switch_activity_button">switch to loading activity preview</string>
+    <string name="switch_activity_button">map with loading screen</string>
     <string name="text_second_loading">brace yourself !</string>
     <string name="text_title_loading">Going into Deep !</string>
 </resources>
