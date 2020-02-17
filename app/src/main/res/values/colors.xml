@@ -4,7 +4,4 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="background_loading_screen">#b2cae4</color>
-    <color name="colorPrimary">#259EE0</color>
-    <color name="colorPrimaryDark">#2594D1</color>
-    <color name="colorAccent">#1F6890</color>
 </resources>
