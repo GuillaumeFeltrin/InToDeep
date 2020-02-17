@@ -43,6 +43,8 @@
         -->
         <activity android:name=".NewLocationActivity" />
         <activity android:name=".RegistrationActivity" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".loading"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
