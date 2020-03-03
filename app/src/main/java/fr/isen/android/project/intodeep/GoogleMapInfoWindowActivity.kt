@@ -39,9 +39,9 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), OnMapReadyCallback {
             .snippet("I am custom Location Marker.")
             .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
 
-        val info = InfoWindowData("title",
-            "subtitle",
-            "description"
+        val info = InfoWindowData("Un titre",
+            "un sous titre",
+            "une description"
             )
 
 

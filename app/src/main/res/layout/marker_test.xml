@@ -25,7 +25,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="272dp"
-        android:text="TextView"
+        android:text="UN TITRE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/marker_picture"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,13 +36,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="276dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/marker_picture"
         app:layout_constraintTop_toBottomOf="@+id/marker_title"
-        tools:text="sub" />
+        tools:text="un sub" />
 
     <TextView
         android:id="@+id/marker_description"
@@ -53,8 +54,9 @@
         android:layout_marginEnd="272dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/marker_subtitle"
-        tools:text="descri" />
+        tools:text="une description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
