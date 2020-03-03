@@ -10,6 +10,9 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -43,7 +46,7 @@
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
         android:theme="@style/AppTheme">
-        <activity android:name=".NewLocationActivity"></activity>
+        <activity android:name=".NewLocationActivity"/>
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
