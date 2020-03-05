@@ -27,10 +27,12 @@ class LoginActivity : AppCompatActivity() {
         logInButton.setOnClickListener {
             doLogin(textInputEmail.text.toString(), textInputPassword.text.toString())
         }
+        buttonSubscription.setOnClickListener {
+            startActivity(Intent(this, RegistrationActivity::class.java))
+        }
         loginGoogleButton.setOnClickListener {
             googleLogin()
         }
-
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.request_client_id))
             .requestEmail()
