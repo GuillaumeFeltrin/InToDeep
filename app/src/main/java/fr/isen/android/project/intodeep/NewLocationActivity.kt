@@ -27,6 +27,7 @@ class NewLocationActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 dataSnapshot.child("diving_site").children.forEach {
                     val post = it.getValue(LocationClass::class.java)
+                    Log.d("lol", post?.toString())
                     var nameSite: String? = post?.name
                     var latitudeSite: String? = post?.latitude
                     var longitudeSite: String? = post?.longitude
