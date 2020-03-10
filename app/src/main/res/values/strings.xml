@@ -12,4 +12,7 @@
     <string name="switch_activity_button">map with loading screen</string>
     <string name="text_second_loading">brace yourself !</string>
     <string name="text_title_loading">Going into Deep !</string>
+    <string name="home">Accueil</string>
+    <string name="memo">Mémo</string>
+    <string name="perso">Mon profil</string>
 </resources>

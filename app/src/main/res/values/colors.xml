@@ -11,4 +11,5 @@
     <color name="background_login_move2">#0986F5 </color>
     <color name="background_login_static3">#074F8F </color>
     <color name="background_login_move3">#3FBEF7 </color>
+    <color name="navbar_color_text">#FFFFFF </color>
 </resources>
