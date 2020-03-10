@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background_animation"
+    android:id="@+id/myBackgroundLayout"
+    tools:context=".MemoActivity">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_bar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        app:itemTextColor="@color/background_login_static3"
+        app:itemIconTint="@color/navbar_color_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation"/>
+
+    <Button
+        android:id="@+id/buttonPratiques"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/layout_bg"
+        android:text="@string/habits"
+        android:textColor="@color/background_login_static3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonHabits"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/layout_bg"
+        android:text="@string/basics"
+        android:textColor="@color/background_login_static3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSigns" />
+
+    <Button
+        android:id="@+id/buttonMaterials"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="150dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/layout_bg"
+        android:text="@string/materials"
+        android:textColor="@color/background_login_static3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonAdmin"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/layout_bg"
+        android:text="@string/administration"
+        android:textColor="@color/background_login_static3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSigns" />
+
+    <Button
+        android:id="@+id/buttonSigns"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="161dp"
+        android:background="@drawable/layout_bg"
+        android:text="@string/signs"
+        android:textColor="@color/background_login_static3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPratiques" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

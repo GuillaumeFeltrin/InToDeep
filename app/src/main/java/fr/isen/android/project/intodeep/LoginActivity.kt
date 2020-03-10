@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            intent = Intent(this, MainActivity::class.java)
+            intent = Intent(this, MapsActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
@@ -73,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d("testemail", "createUserWithEmail:success")
                     //val user = auth.currentUser
-                    intent = Intent(this, MainActivity::class.java)
+                    intent = Intent(this, MapsActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 } else {
@@ -117,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
             Log.i(TAG, "Firebase Authentication, is result a success? ${task.isSuccessful}.")
             if (task.isSuccessful) {
                 // Sign in success, update UI with the signed-in user's information
-                startActivity(Intent(this, HomeActivity::class.java))
+                startActivity(Intent(this, MapsActivity::class.java))
             } else {
                 // If sign in fails, display a message to the user.
                 Log.e(TAG, "Authenticating with Google credentials in firebase FAILED !!")

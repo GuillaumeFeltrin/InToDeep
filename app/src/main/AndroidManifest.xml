@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".SignsActivity"></activity>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".HomeActivity" />
         <activity android:name=".GoogleMapInfoWindowActivity" />
 
         <meta-data
@@ -36,6 +39,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".MemoActivity" />
     </application>
 
 </manifest>
