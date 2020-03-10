@@ -30,7 +30,7 @@ class MemoActivity : AppCompatActivity() {
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
-            R.id.add_item -> {
+            R.id.memo_item -> {
                 intent= Intent(this, MemoActivity::class.java)
                 startActivity(intent)
                 true
@@ -42,6 +42,11 @@ class MemoActivity : AppCompatActivity() {
             }
             R.id.feed_item -> {
                 intent= Intent(this, MapsActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.add_item -> {
+                intent= Intent(this, AddSpotActivity::class.java)
                 startActivity(intent)
                 true
             }

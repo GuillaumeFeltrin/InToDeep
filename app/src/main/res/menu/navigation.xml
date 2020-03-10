@@ -7,6 +7,11 @@
         android:title="@string/home" />
     <item
         android:id="@+id/add_item"
+        android:icon="@android:drawable/ic_input_add"
+        android:textColor="@color/navbar_color_text"
+        android:title="@string/memo" />
+    <item
+        android:id="@+id/memo_item"
         android:icon="@android:drawable/ic_menu_agenda"
         android:textColor="@color/navbar_color_text"
         android:title="@string/memo" />

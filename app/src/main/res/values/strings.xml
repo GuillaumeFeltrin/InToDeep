@@ -21,4 +21,11 @@
     <string name="materials">Le Matériel</string>
     <string name="administration">Administratif</string>
     <string name="basics">Les Règles de Base</string>
+    <string name="submit">Ajouter un site</string>
+    <string name="name_spot">Nom du site</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="deep">Profondeur</string>
+    <string name="description">Description</string>
+    <string name="add_button_description">Ajouter une description</string>
 </resources>
