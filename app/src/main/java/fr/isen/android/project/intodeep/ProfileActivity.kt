@@ -17,8 +17,10 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
         signOut()
+        
         toolbar = supportActionBar!!
-        bottom_nav_bar.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_nav_bar)
+        bottomNavigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->

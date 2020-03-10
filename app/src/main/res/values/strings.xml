@@ -14,8 +14,9 @@
     <string name="text_second_loading">brace yourself !</string>
     <string name="text_title_loading">Going into Deep !</string>
     <string name="home">Accueil</string>
-    <string name="memo">Mémo</string>
-    <string name="perso">Mon profil</string>
+    <string name="memo">Memo</string>
+    <string name="perso">Profil</string>
+    <string name="add">Ajouter</string>
     <string name="signs">Les Signes</string>
     <string name="habits">Les Bonnes Pratiques</string>
     <string name="materials">Le Matériel</string>

@@ -20,7 +20,8 @@ class MemoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_memo)
 
         toolbar = supportActionBar!!
-        bottom_nav_bar.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_nav_bar)
+        bottomNavigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
         frameAnimation = myBackgroundLayout.getBackground() as AnimationDrawable
         frameAnimation.setEnterFadeDuration(4500)

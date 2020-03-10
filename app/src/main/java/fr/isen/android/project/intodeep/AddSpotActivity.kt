@@ -13,20 +13,25 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import fr.isen.android.project.intodeep.classes.LocationClass
 import kotlinx.android.synthetic.main.activity_add_spot.*
+import kotlinx.android.synthetic.main.activity_add_spot.bottom_nav_bar
+import kotlinx.android.synthetic.main.activity_memo.*
 
 class AddSpotActivity : AppCompatActivity() {
 
     lateinit var database: DatabaseReference
     lateinit var auth: FirebaseAuth
     lateinit var storage: FirebaseStorage
+    lateinit var toolbar: ActionBar
 
     val GALLERY = 1
     val CAMERA = 2
@@ -36,6 +41,10 @@ class AddSpotActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_spot)
+
+        toolbar = supportActionBar!!
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_nav_bar)
+        bottomNavigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
         storage = FirebaseStorage.getInstance()
         database = FirebaseDatabase.getInstance().reference
@@ -206,5 +215,31 @@ class AddSpotActivity : AppCompatActivity() {
         } else {
             handler()
         }
+    }
+
+    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.memo_item -> {
+                intent= Intent(this, MemoActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.perso_item -> {
+                intent= Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.feed_item -> {
+                intent= Intent(this, MapsActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.add_item -> {
+                intent= Intent(this, AddSpotActivity::class.java)
+                startActivity(intent)
+                true
+            }
+        }
+        false
     }
 }
