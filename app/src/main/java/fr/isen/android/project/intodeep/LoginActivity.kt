@@ -1,6 +1,7 @@
 package fr.isen.android.project.intodeep
 
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,6 +20,8 @@ class LoginActivity : AppCompatActivity() {
     val TAG = "CreateAccount"
     var googleApiClient: GoogleApiClient? = null
     private lateinit var auth: FirebaseAuth
+
+    lateinit var frameAnimation: AnimationDrawable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
@@ -42,7 +45,10 @@ class LoginActivity : AppCompatActivity() {
             .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions)
             .build()
 
-
+        frameAnimation = myBackgroundLayout.getBackground() as AnimationDrawable
+        frameAnimation.setEnterFadeDuration(4500)
+        frameAnimation.setExitFadeDuration(4500)
+        frameAnimation.start()
         /*mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)*/
