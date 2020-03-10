@@ -29,7 +29,6 @@ import kotlinx.android.synthetic.main.activity_memo.*
 class AddSpotActivity : AppCompatActivity() {
 
     lateinit var database: DatabaseReference
-    lateinit var auth: FirebaseAuth
     lateinit var storage: FirebaseStorage
     lateinit var toolbar: ActionBar
 
