@@ -12,14 +12,14 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.ActionBar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import fr.isen.android.project.intodeep.classes.LocationClass
 import kotlinx.android.synthetic.main.activity_add_spot.*
@@ -48,6 +48,8 @@ class AddSpotActivity : AppCompatActivity() {
 
         storage = FirebaseStorage.getInstance()
         database = FirebaseDatabase.getInstance().reference
+
+        addManuallySpot()
 
         pictureButton.setOnClickListener{
             showPictureDialog()
@@ -88,6 +90,38 @@ class AddSpotActivity : AppCompatActivity() {
             img_ref.child(path).putFile(it)
         }
 
+    }
+
+    fun addManuallySpot(){
+        writeNewSite("1", "Le Togo", "43.168611", "6.60222")
+        writeNewSite("2", "Le Donator", "42.998889", "6.277778")
+        writeNewSite("3", "Le Grec", "42.993611", "6.278333")
+        writeNewSite("4", "Le Spahis", "43.111667", "6.407778")
+
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataSnapshot.child("diving_site").children.forEach {
+                    val post = it.getValue(LocationClass::class.java)
+                    Log.d("lol", post?.toString())
+                    var nameSite: String? = post?.name
+                    var latitudeSite: String? = post?.latitude
+                    var longitudeSite: String? = post?.longitude
+                }
+
+                /*textViewName.text = "${}"
+                textViewLatitude.text = "${latitudeISte}"
+                textViewLongitude.text = "${longitudeSite}"*/
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("errorReading", "loadPost:onCancelled", databaseError.toException())
+            }
+        })
+    }
+
+    private fun writeNewSite(id: String, name: String, latittude: String, longitude: String) {
+        val location = LocationClass(id, name, latittude, longitude)
+        database.child("diving_site").child(id).setValue(location)
     }
 
     fun showPictureDialog() {

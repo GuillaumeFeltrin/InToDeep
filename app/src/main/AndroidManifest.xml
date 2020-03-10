@@ -17,9 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AddSpotActivity"></activity>
-        <activity android:name=".SignsActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".AddSpotActivity"
+            android:label="@string/add"/>
+        <activity android:name=".SignsActivity"
+            android:label="@string/signs"/>
+        <activity android:name=".ProfileActivity"
+            android:label="@string/perso"/>
         <activity android:name=".HomeActivity" />
         <activity android:name=".GoogleMapInfoWindowActivity" />
 
@@ -31,9 +34,10 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" /> <!-- android:theme="@style/AppTheme" -->
         <activity android:name=".NewLocationActivity" />
-        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".RegistrationActivity"
+            android:label="@string/subscription"/>
         <activity android:name=".loading" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity" android:label="@string/connect">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,7 +45,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".MemoActivity" />
+        <activity android:name=".MemoActivity"
+            android:label="@string/memo"/>
     </application>
 
 </manifest>
