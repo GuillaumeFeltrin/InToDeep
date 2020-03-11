@@ -4,8 +4,8 @@ import com.google.firebase.database.IgnoreExtraProperties
 
 @IgnoreExtraProperties
 data class AdvicesClass (
-    var idAdvice: String = "",
-    var nameAdvice: String = "",
+    var id: String = "",
+    var name: String = "",
     var category: String = "",
-    var descriptionAdvice: String = ""
+    var description: String = ""
 )

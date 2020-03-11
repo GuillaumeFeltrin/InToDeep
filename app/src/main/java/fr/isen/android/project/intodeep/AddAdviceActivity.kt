@@ -41,7 +41,7 @@ class AddAdviceActivity : AppCompatActivity() {
 
         database = FirebaseDatabase.getInstance().reference
         storage = FirebaseStorage.getInstance()
-        //addManuallySpot()
+        addManuallySpot()
         buttonSubmitAdvice.setOnClickListener{
             addAdviceToDatabase(database)
             intent= Intent(this, MemoActivity::class.java)
@@ -56,11 +56,11 @@ class AddAdviceActivity : AppCompatActivity() {
         var description: String? = null
         name = nameAdvice.text.toString()
         category = categoryAdvice.text.toString()
-        description = descriptionSpot.text.toString()
+        description = descriptionAdvice.text.toString()
         val newAdvice = AdvicesClass("1", name, category, description)
         val key = firebaseData.child("advices").push().key ?: ""
-        newAdvice.idAdvice = key
-        var id_advice = newAdvice.idAdvice.toString()
+        newAdvice.id = key
+        var id_advice = newAdvice.id.toString()
         firebaseData.child("advices").child(key).setValue(newAdvice)
 
         val storage_ref = storage.reference
