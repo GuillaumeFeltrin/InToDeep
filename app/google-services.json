@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "521908361420",
+    "firebase_url": "https://intodeep-d666c.firebaseio.com",
+    "project_id": "intodeep-d666c",
+    "storage_bucket": "intodeep-d666c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521908361420:android:b50cbf21e5d30846038a69",
+        "android_client_info": {
+          "package_name": "fr.isen.android.project.intodeep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521908361420-39fgd3fuf13pkgaehia8ds6io69mkcuv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.isen.android.project.intodeep",
+            "certificate_hash": "b1a296c20197e3bb090eb3b9a63ca291fb4bf4ea"
+          }
+        },
+        {
+          "client_id": "521908361420-1hacja3m1g23geukrkotue8qojko5m6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYqRu2VUdq4sfdG8a3nHUI5OV-tTgQpHU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521908361420-1hacja3m1g23geukrkotue8qojko5m6b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

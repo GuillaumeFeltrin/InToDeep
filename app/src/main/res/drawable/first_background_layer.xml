@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <gradient android:startColor="@color/background_login_static"
+        android:endColor="@color/background_login_move"
+        android:angle="90"/>
+</shape>

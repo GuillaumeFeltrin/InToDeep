@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:baselineAligned="false"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/marker_picture"
+        android:layout_width="84dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:contentDescription="une belle image s'il en est"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/poisson" />
+
+    <TextView
+        android:id="@+id/marker_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="91dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="191dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/marker_picture"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Titre" />
+
+    <TextView
+        android:id="@+id/marker_subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/marker_title"
+        app:layout_constraintStart_toStartOf="@+id/marker_title"
+        app:layout_constraintTop_toBottomOf="@+id/marker_title"
+        tools:text="un sub" />
+
+    <TextView
+        android:id="@+id/marker_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/marker_deep"
+        app:layout_constraintStart_toStartOf="@+id/marker_deep"
+        app:layout_constraintTop_toBottomOf="@+id/marker_deep"
+        tools:text="descri" />
+
+    <TextView
+        android:id="@+id/marker_deep"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/marker_subtitle"
+        app:layout_constraintStart_toStartOf="@+id/marker_subtitle"
+        app:layout_constraintTop_toBottomOf="@+id/marker_subtitle"
+        tools:text="deep" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#2177C6</color>
+    <color name="colorPrimaryDark">#136BBB</color>
+    <color name="color_bar_dark">#4a4a4a</color>
+    <color name="colorAccent">#136BBB</color>
+    <color name="background_loading_screen">#b2cae4</color>
+    <color name="background_login_static">#448BCA </color>
+    <color name="background_login_move">#C6DEF3</color>
+    <color name="background_login_static2">#068BC7 </color>
+    <color name="background_login_move2">#0986F5 </color>
+    <color name="background_login_static3">#074F8F </color>
+    <color name="background_login_move3">#3FBEF7 </color>
+    <color name="navbar_color_text">#FFFFFF </color>
 </resources>
