@@ -1,8 +1,10 @@
 package fr.isen.android.project.intodeep
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.ActionBar
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -12,14 +14,13 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.Marker
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
 
     private lateinit var mMap: GoogleMap
-
-
-
+    lateinit var toolbar: ActionBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +29,10 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        toolbar = supportActionBar!!
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_nav_bar)
+        bottomNavigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -55,5 +60,31 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
         marker.showInfoWindow()
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+    }
+
+    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.memo_item -> {
+                intent= Intent(this, MemoActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.perso_item -> {
+                intent= Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.feed_item -> {
+                intent= Intent(this, MapsActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.add_item -> {
+                intent= Intent(this, AddSpotActivity::class.java)
+                startActivity(intent)
+                true
+            }
+        }
+        false
     }
 }

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="fr.isen.android.project.intodeep">
+    package="fr.isen.android.project.intodeep" >
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -15,28 +16,46 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".GoogleMapInfoWindowActivity"></activity>
+        tools:ignore="GoogleAppIndexingWarning" >
+        <activity android:name=".AddAdviceActivity" >
+        </activity>
+        <activity
+            android:name=".AddSpotActivity"
+            android:label="@string/add" />
+        <activity
+            android:name=".SignsActivity"
+            android:label="@string/signs" />
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/perso" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".GoogleMapInfoWindowActivity" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <!--android:theme="@style/AppTheme"-->
-        <activity android:name=".NewLocationActivity"/>
-
-        <activity android:name=".RegistrationActivity" />
+            android:label="@string/title_activity_maps" /> <!-- android:theme="@style/AppTheme" -->
+        <activity android:name=".NewLocationActivity" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:label="@string/subscription" />
         <activity android:name=".loading" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/connect" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MemoActivity"
+            android:label="@string/memo" />
     </application>
 
 </manifest>
