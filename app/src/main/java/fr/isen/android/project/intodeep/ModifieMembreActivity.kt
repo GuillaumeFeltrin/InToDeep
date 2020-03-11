@@ -40,13 +40,14 @@ class ModifieMembreActivity : AppCompatActivity() {
         modification_confim.setOnClickListener{
 
 
-            myRef.addValueEventListener(object : ValueEventListener {
+            myRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     for (child in dataSnapshot.child(table_name).children) {
                         if(child.key.toString() == id){
                             for(child in child.children){
                                 modifie_param(child.key.toString())
                             }
+                            break
                         }
                     }
                 }

@@ -18,15 +18,15 @@ class MemberActivity : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
     private val table_name = "profile"
 
-    private var mail_user:String =""
+    private var mail_user:String ="empty"
 
-    private var description:String =""
-    private var nom:String=""
-    private var prenom:String=""
-    private var niveau:String=""
-    private var mail:String=""
-    private var id:String=""
-
+    private var description:String ="empty"
+    private var nom:String="empty"
+    private var prenom:String="empty"
+    private var niveau:String="empty"
+    private var mail:String="empty"
+    private var id:String="empty"
+    private var lock:Boolean=false
     fun signOut() {
         auth = FirebaseAuth.getInstance()
         button_voila_il_est_tard.setOnClickListener {
@@ -50,20 +50,25 @@ class MemberActivity : AppCompatActivity() {
         if(auth.currentUser != null){
             mail_user = auth.currentUser?.email.toString()
 
-            myRef.addValueEventListener(object : ValueEventListener {
+            myRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
+
                     id = id_maker(mail_user)
                     //Log.v("_membre","id : $id")
                     for(child in dataSnapshot.child(table_name).children) {
-                        //Log.v("_membre","id dans la base : ${child.key.toString()}")
-                        if(child.key.toString() == id){
+                        if(lock)(break)
+                        Log.v("_profile","lock : $lock")
+                        Log.v("_membre","id dans la base : ${child.key.toString()}")
+                        if(child.key.toString() == id && !lock){
                             Log.v("_profile","$child")
                             for(child in child.children){
                                 recupere_donnees(child.key.toString(),child.value.toString())
                             }
                             set_layout()
-                            return
+                            lock=true
+                            break
                         }
+
                     }
                 }
                 override fun onCancelled(databaseError: DatabaseError) {
@@ -108,7 +113,7 @@ class MemberActivity : AppCompatActivity() {
             "mail"->{set_mail(value)}
             "descritpion"->{set_descr(value)}
             "niveau"->{set_niveau(value.toString())}
-            else->{Log.v("_profile", "key : $key"); return }
+            else->{Log.v("_profile", "key : $key")}
         }
     }
     private fun set_nom(value: String) {nom = value}
