@@ -35,7 +35,8 @@
             android:id="@+id/nameSpot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/name_spot" />
+            android:hint="@string/name_spot"
+            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -53,7 +54,8 @@
             android:id="@+id/lattitudeSpot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/latitude" />
+            android:hint="@string/latitude"
+            android:inputType="numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -71,7 +73,8 @@
             android:id="@+id/longitudeSpot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/longitude" />
+            android:hint="@string/longitude"
+            android:inputType="number|numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -89,7 +92,8 @@
             android:id="@+id/deepSpot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/deep" />
+            android:hint="@string/deep"
+            android:inputType="number|numberDecimal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -107,7 +111,8 @@
             android:id="@+id/descriptionSpot"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/description" />
+            android:hint="@string/description"
+            android:inputType="textMultiLine" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
