@@ -1,13 +1,18 @@
 package fr.isen.android.project.intodeep
 
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.ActionBar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_member.*
+import kotlinx.android.synthetic.main.activity_member.myBackgroundLayout
+import kotlinx.android.synthetic.main.activity_memo.*
 
 
 class MemberActivity : AppCompatActivity() {
@@ -27,6 +32,9 @@ class MemberActivity : AppCompatActivity() {
     private var mail:String=""
     private var id:String=""
 
+    lateinit var toolbar: ActionBar
+    lateinit var frameAnimation: AnimationDrawable
+
     fun signOut() {
         auth = FirebaseAuth.getInstance()
         button_voila_il_est_tard.setOnClickListener {
@@ -45,6 +53,15 @@ class MemberActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         Log.v("_profile","un utilisateur est connecté ${auth.currentUser?.email.toString()}")
         setContentView(R.layout.activity_member)
+
+        toolbar = supportActionBar!!
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_nav_bar)
+        bottomNavigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
+        frameAnimation = myBackgroundLayout.getBackground() as AnimationDrawable
+        frameAnimation.setEnterFadeDuration(4500)
+        frameAnimation.setExitFadeDuration(4500)
+        frameAnimation.start()
 
         signOut()
         if(auth.currentUser != null){
@@ -116,4 +133,30 @@ class MemberActivity : AppCompatActivity() {
     private fun set_mail(value: String) {mail = value}
     private fun set_descr(value: String) {description = value}
     private fun set_niveau(value: String) {niveau = value}
+
+    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.memo_item -> {
+                intent= Intent(this, MemoActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.perso_item -> {
+                intent= Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.feed_item -> {
+                intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.add_item -> {
+                intent= Intent(this, AddSpotActivity::class.java)
+                startActivity(intent)
+                true
+            }
+        }
+        false
+    }
 }

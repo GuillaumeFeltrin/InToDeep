@@ -33,4 +33,5 @@
     <string name="authorized_category">Catégories autorisées : administratif et pratiques</string>
     <string name="description_advice">Description du conseil</string>
     <string name="description_basics">Description des bases</string>
+    <string name="modifications">Modifier vos données</string>
 </resources>

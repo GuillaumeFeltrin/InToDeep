@@ -4,7 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_animation"
+    android:id="@+id/myBackgroundLayout"
     tools:context=".MemberActivity">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav_bar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/colorPrimary"
+        app:itemTextColor="@color/background_login_static3"
+        app:itemIconTint="@color/navbar_color_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/navigation"/>
 
     <TextView
         android:id="@+id/membre_nom"
@@ -85,7 +99,9 @@
         android:layout_marginStart="161dp"
         android:layout_marginTop="129dp"
         android:layout_marginEnd="162dp"
-        android:text="Modifier vos données"
+        android:background="@drawable/layout_bg"
+        android:text="@string/modifications"
+        android:textColor="@color/background_login_static3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.418"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +114,9 @@
         android:layout_marginStart="161dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="161dp"
-        android:text="DECONNEXION"
+        android:background="@drawable/layout_bg"
+        android:text="@string/disconnect"
+        android:textColor="@color/background_login_static3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/member_modify_button" />
