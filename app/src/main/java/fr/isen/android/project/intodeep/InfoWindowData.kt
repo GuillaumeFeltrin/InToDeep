@@ -1,10 +1,8 @@
 package fr.isen.android.project.intodeep
 
-import android.media.Image
-import android.media.MediaPlayer
-
-data class InfoWindowData (
+class InfoWindowData (
     val title: String,
     val subtitle: String,
+    val deep:String,
     val description: String
 )
