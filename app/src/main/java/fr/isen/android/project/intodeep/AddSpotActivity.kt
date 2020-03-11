@@ -70,6 +70,7 @@ class AddSpotActivity : AppCompatActivity() {
         longitude = longitudeSpot.text.toString()
         deep = deepSpot.text.toString()
         description = descriptionSpot.text.toString()
+
         val newSpot = LocationClass("1", title, latitude, longitude, deep, description)
         val key = firebaseData.child("diving_site").push().key ?: ""
         newSpot.id = key
