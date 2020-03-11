@@ -23,7 +23,7 @@ class MemberActivity : AppCompatActivity() {
     private lateinit var auth : FirebaseAuth
     private val table_name = "profile"
 
-    private var mail_user:String =""
+    private var mail_user:String ="empty"
 
     private var description:String =""
     private var nom:String=""
@@ -31,6 +31,8 @@ class MemberActivity : AppCompatActivity() {
     private var niveau:String=""
     private var mail:String=""
     private var id:String=""
+
+    private var lock:Boolean = false
 
     lateinit var toolbar: ActionBar
     lateinit var frameAnimation: AnimationDrawable
@@ -67,20 +69,25 @@ class MemberActivity : AppCompatActivity() {
         if(auth.currentUser != null){
             mail_user = auth.currentUser?.email.toString()
 
-            myRef.addValueEventListener(object : ValueEventListener {
+            myRef.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
+
                     id = id_maker(mail_user)
                     //Log.v("_membre","id : $id")
                     for(child in dataSnapshot.child(table_name).children) {
-                        //Log.v("_membre","id dans la base : ${child.key.toString()}")
-                        if(child.key.toString() == id){
+                        if(lock)(break)
+                        Log.v("_profile","lock : $lock")
+                        Log.v("_membre","id dans la base : ${child.key.toString()}")
+                        if(child.key.toString() == id && !lock){
                             Log.v("_profile","$child")
                             for(child in child.children){
                                 recupere_donnees(child.key.toString(),child.value.toString())
                             }
                             set_layout()
-                            return
+                            lock=true
+                            break
                         }
+
                     }
                 }
                 override fun onCancelled(databaseError: DatabaseError) {
@@ -114,7 +121,7 @@ class MemberActivity : AppCompatActivity() {
         membre_email.text = mail
         membre_prenom.text = prenom
         membre_description.text = description
-        membre_niveau.text = niveau
+        membre_niveau.text = niveau.toString()
 
     }
 
@@ -124,15 +131,15 @@ class MemberActivity : AppCompatActivity() {
             "prenom"->{set_prenom(value)}
             "mail"->{set_mail(value)}
             "descritpion"->{set_descr(value)}
-            "niveau"->{set_niveau(value)}
-            else->{Log.v("_profile", "key : $key"); return }
+            "niveau"->{set_niveau(value.toString())}
+            else->{Log.v("_profile", "key : $key")}
         }
     }
     private fun set_nom(value: String) {nom = value}
     private fun set_prenom(value: String) {prenom = value}
     private fun set_mail(value: String) {mail = value}
     private fun set_descr(value: String) {description = value}
-    private fun set_niveau(value: String) {niveau = value}
+    private fun set_niveau(value: String) {niveau = value.toString()}
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -159,4 +166,5 @@ class MemberActivity : AppCompatActivity() {
         }
         false
     }
+
 }
