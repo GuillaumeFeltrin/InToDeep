@@ -17,7 +17,6 @@
     <string name="memo">Memo</string>
     <string name="perso">Profil</string>
     <string name="add">Ajouter</string>
-    <string name="signs">Les Signes</string>
     <string name="habits">Les Bonnes Pratiques</string>
     <string name="materials">Le Matériel</string>
     <string name="administration">Administratif</string>
@@ -29,9 +28,9 @@
     <string name="deep">Profondeur</string>
     <string name="description">Description</string>
     <string name="add_button_description">Ajouter une description</string>
-    <string name="add_button_advices">Ajouter un conseil</string>
     <string name="name_advice">Nom du conseil</string>
     <string name="category">Catégorie</string>
     <string name="authorized_category">Catégories autorisées : administratif et pratiques</string>
     <string name="description_advice">Description du conseil</string>
+    <string name="description_basics">Description des bases</string>
 </resources>

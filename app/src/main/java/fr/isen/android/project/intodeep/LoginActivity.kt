@@ -24,9 +24,9 @@ class LoginActivity : AppCompatActivity() {
     lateinit var frameAnimation: AnimationDrawable
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        auth = FirebaseAuth.getInstance()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        auth = FirebaseAuth.getInstance()
         logInButton.setOnClickListener {
             doLogin(textInputEmail.text.toString(), textInputPassword.text.toString())
         }
@@ -49,11 +49,7 @@ class LoginActivity : AppCompatActivity() {
         frameAnimation.setEnterFadeDuration(4500)
         frameAnimation.setExitFadeDuration(4500)
         frameAnimation.start()
-        /*mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
-        val signInIntent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)*/
     }
-
 
     public override fun onStart() {
         super.onStart()
@@ -68,22 +64,21 @@ class LoginActivity : AppCompatActivity() {
 
     fun doLogin(email: String, password: String) {
 
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    Log.d("testemail", "createUserWithEmail:success")
-                    //val user = auth.currentUser
-                    intent = Intent(this, loading::class.java)
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    startActivity(intent)
-                } else {
-                    Log.w("testemail", "createUserWithEmail:failure", task.exception)
-                    Toast.makeText(
-                        baseContext, "Authentication failed.",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
+            if (task.isSuccessful) {
+                // Sign in success, update UI with the signed-in user's information
+                Log.d("test", "signInWithEmail:success")
+                val user = auth.currentUser
+                intent = Intent(this, GoogleMapInfoWindowActivity::class.java)
+                //intent.putExtra(user)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            } else {
+                // If sign in fails, display a message to the user.
+                Log.w("test", "signInWithEmail:failure", task.exception)
+                Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
             }
+        }
     }
 
     private fun googleLogin() {

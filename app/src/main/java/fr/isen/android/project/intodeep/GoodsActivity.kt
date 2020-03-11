@@ -5,19 +5,24 @@ import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.ActionBar
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.activity_memo.*
+import fr.isen.android.project.intodeep.adapters.GoodsAdapter
+import kotlinx.android.synthetic.main.activity_goods.*
 import kotlinx.android.synthetic.main.activity_memo.myBackgroundLayout
 
-class MemoActivity : AppCompatActivity() {
+class GoodsActivity : AppCompatActivity() {
 
     lateinit var toolbar: ActionBar
     lateinit var frameAnimation: AnimationDrawable
 
+    val goods: ArrayList<String> = ArrayList()
+    val descriptionGoods: ArrayList<String> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_memo)
+        setContentView(R.layout.activity_goods)
 
         toolbar = supportActionBar!!
         val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_nav_bar)
@@ -28,21 +33,33 @@ class MemoActivity : AppCompatActivity() {
         frameAnimation.setExitFadeDuration(4500)
         frameAnimation.start()
 
-        buttonPratiques.setOnClickListener {
-            startActivity(Intent(this, GoodsActivity::class.java))
-        }
+        addAdvices()
+        addAdvicesDescription()
+        rvGoods.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rvGoods.layoutManager = GridLayoutManager(this, 1)
+        rvGoods.adapter = GoodsAdapter(goods, descriptionGoods, this)
+    }
 
-        buttonMaterials.setOnClickListener {
-            startActivity(Intent(this, MaterialActivity::class.java))
-        }
+    private fun addAdvices(){
+        goods.add("Ne pas jeter de détritus")
+        goods.add("Ne pas nourrir les poissons")
+        goods.add("Ne pas toucher les poissons")
+        goods.add("Rester à bonne distance du récif")
+        goods.add("Attention à tes palmes")
+        goods.add("Ajuster et attacher son équipement")
+        goods.add("Ne rien ramasser au fond")
+        goods.add("Ne rien jeter du bateau")
+    }
 
-        buttonAdmin.setOnClickListener {
-            startActivity(Intent(this, AdminActivity::class.java))
-        }
-
-        buttonHabits.setOnClickListener {
-            startActivity(Intent(this, BasicsActivity::class.java))
-        }
+    private fun addAdvicesDescription(){
+        descriptionGoods.add("La pollution des eaux c'est pas top")
+        descriptionGoods.add("Les poissons mangent pas la même nourriture que toi")
+        descriptionGoods.add("Les poissons peuvent stresser alors lâche-les")
+        descriptionGoods.add("Faut pas toucher le bord si tu veux pas tout abimer")
+        descriptionGoods.add("Tu peux endommager le récif et faire mal aux autres")
+        descriptionGoods.add("Le mano qui se prends dans le corail c'est pas top")
+        descriptionGoods.add("Si c'est sous l'eau alors ça y reste (sauf les déchets)")
+        descriptionGoods.add("La mer c'est pas une poubelle")
     }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
