@@ -2,11 +2,15 @@ package fr.isen.android.project.intodeep
 
 import android.content.Intent
 import android.graphics.drawable.AnimationDrawable
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.ActionBar
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.*
+import com.google.firebase.storage.FirebaseStorage
+import fr.isen.android.project.intodeep.classes.AdvicesClass
 import fr.isen.android.project.intodeep.classes.LocationClass
 import kotlinx.android.synthetic.main.activity_add_advice.*
 import kotlinx.android.synthetic.main.activity_add_spot.*
@@ -15,8 +19,12 @@ import kotlinx.android.synthetic.main.activity_memo.myBackgroundLayout
 
 class AddAdviceActivity : AppCompatActivity() {
 
+    lateinit var database: DatabaseReference
+    lateinit var storage: FirebaseStorage
     lateinit var toolbar: ActionBar
     lateinit var frameAnimation: AnimationDrawable
+
+    var image_uri: Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,25 +38,34 @@ class AddAdviceActivity : AppCompatActivity() {
         frameAnimation.setEnterFadeDuration(4500)
         frameAnimation.setExitFadeDuration(4500)
         frameAnimation.start()
+
+        database = FirebaseDatabase.getInstance().reference
+        storage = FirebaseStorage.getInstance()
+        //addManuallySpot()
+        buttonSubmitAdvice.setOnClickListener{
+            addAdviceToDatabase(database)
+            intent= Intent(this, MemoActivity::class.java)
+            startActivity(intent)
+        }
     }
 
-    /*fun addAdviceToDatabase(firebaseData: DatabaseReference) {
+    fun addAdviceToDatabase(firebaseData: DatabaseReference) {
 
         var name: String? = null
         var category: String? = null
         var description: String? = null
         name = nameAdvice.text.toString()
-
+        category = categoryAdvice.text.toString()
         description = descriptionSpot.text.toString()
-        val newSpot = LocationClass("1", title, latitude, longitude, deep, description)
-        val key = firebaseData.child("diving_site").push().key ?: ""
-        newSpot.id = key
-        var id_spot = newSpot.id.toString()
-        firebaseData.child("diving_site").child(key).setValue(newSpot)
+        val newAdvice = AdvicesClass("1", name, category, description)
+        val key = firebaseData.child("advices").push().key ?: ""
+        newAdvice.idAdvice = key
+        var id_advice = newAdvice.idAdvice.toString()
+        firebaseData.child("advices").child(key).setValue(newAdvice)
 
         val storage_ref = storage.reference
         var path : String? = null
-        path = id_spot + ".jpg"
+        path = id_advice + ".jpg"
 
 
         val img_ref = storage_ref.child(path)
@@ -58,9 +75,31 @@ class AddAdviceActivity : AppCompatActivity() {
 
     }
 
-    fun addListenerOnCheckButtons(){
+    fun addManuallySpot(){
+        writeNewSite("1", "L'apéro", "Pratiques", "L'apéro c'est rigolo")
 
-    }*/
+
+        database.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataSnapshot.child("advices").children.forEach {
+
+                }
+
+                /*textViewName.text = "${}"
+                textViewLatitude.text = "${latitudeISte}"
+                textViewLongitude.text = "${longitudeSite}"*/
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.w("errorReading", "loadPost:onCancelled", databaseError.toException())
+            }
+        })
+    }
+
+    private fun writeNewSite(id: String, name: String, category: String, description: String) {
+        val location = AdvicesClass(id, name, category, description)
+        database.child("advices").child(id).setValue(location)
+    }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -75,7 +114,7 @@ class AddAdviceActivity : AppCompatActivity() {
                 true
             }
             R.id.feed_item -> {
-                intent= Intent(this, MapsActivity::class.java)
+                intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
                 startActivity(intent)
                 true
             }

@@ -46,7 +46,7 @@ class MemoActivity : AppCompatActivity() {
                 true
             }
             R.id.feed_item -> {
-                intent= Intent(this, MapsActivity::class.java)
+                intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
                 startActivity(intent)
                 true
             }
