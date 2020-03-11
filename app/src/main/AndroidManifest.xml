@@ -17,16 +17,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".BasicsActivity"/>
-        <activity android:name=".AdminActivity" />
-        <activity android:name=".MaterialActivity" />
-        <activity android:name=".GoodsActivity" />
+        <activity android:name=".BasicsActivity"
+            android:label="@string/basics"/>
+        <activity android:name=".AdminActivity"
+            android:label="@string/administration"/>
+        <activity android:name=".MaterialActivity"
+            android:label="@string/materials"/>
+        <activity android:name=".GoodsActivity"
+            android:label="@string/habits"/>
         <activity
             android:name=".AddSpotActivity"
             android:label="@string/add" />
-        <activity
-            android:name=".SignsActivity"
-            android:label="@string/signs" />
         <activity
             android:name=".ProfileActivity"
             android:label="@string/perso" />
