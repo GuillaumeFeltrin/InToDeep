@@ -19,7 +19,7 @@ class MaterialAdapter(val items : ArrayList<String>, val context: Context) : Rec
     }
 
     override fun onBindViewHolder(holder: MaterialViewHolder, position: Int) {
-        holder?.materialName?.text = items.get(position)
+        holder.materialName?.text = items.get(position)
     }
 }
 

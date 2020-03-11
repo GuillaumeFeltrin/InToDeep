@@ -28,22 +28,22 @@ class ProfileActivity : AppCompatActivity() {
             R.id.memo_item -> {
                 intent= Intent(this, MemoActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.perso_item -> {
                 intent= Intent(this, MemberActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.feed_item -> {
                 intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.add_item -> {
                 intent= Intent(this, AddSpotActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
         }
         false

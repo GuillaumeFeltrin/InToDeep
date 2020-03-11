@@ -44,8 +44,8 @@ class ModifieMembreActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for (child in dataSnapshot.child(table_name).children) {
                     if(child.key.toString() == id){
-                        for(child in child.children){
-                            modifie_preset(child.key.toString(), child.value.toString())
+                        for(childd in child.children){
+                            modifie_preset(childd.key.toString(), childd.value.toString())
                         }
                     }
                 }
@@ -62,8 +62,8 @@ class ModifieMembreActivity : AppCompatActivity() {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     for (child in dataSnapshot.child(table_name).children) {
                         if(child.key.toString() == id){
-                            for(child in child.children){
-                                modifie_param(child.key.toString())
+                            for(childD in child.children){
+                                modifie_param(childD.key.toString())
                             }
                             break
                         }
@@ -118,9 +118,9 @@ class ModifieMembreActivity : AppCompatActivity() {
 
     private fun id_maker(mail: String): String {
         var droit:String = "@gmail.com"
-        var gauche:String = ""
+        //var gauche:String = ""
 
-        gauche = mail.substring(0,mail.length-droit.length)
+        var gauche = mail.substring(0,mail.length-droit.length)
 
         gauche = gauche.replace(".","")
 
@@ -132,22 +132,22 @@ class ModifieMembreActivity : AppCompatActivity() {
             R.id.memo_item -> {
                 intent= Intent(this, MemoActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.perso_item -> {
                 intent= Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.feed_item -> {
                 intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.add_item -> {
                 intent= Intent(this, AddSpotActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
         }
         false

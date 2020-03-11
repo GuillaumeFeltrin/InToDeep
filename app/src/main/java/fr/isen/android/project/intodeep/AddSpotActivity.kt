@@ -60,16 +60,11 @@ class AddSpotActivity : AppCompatActivity() {
 
     fun addToDatabase(firebaseData: DatabaseReference) {
 
-        var title : String? =  null
-        var latitude: String? = null
-        var longitude: String? = null
-        var deep: String? = null
-        var description : String? =  null
-        title = nameSpot.text.toString()
-        latitude = lattitudeSpot.text.toString()
-        longitude = longitudeSpot.text.toString()
-        deep = deepSpot.text.toString()
-        description = descriptionSpot.text.toString()
+        var title : String = nameSpot.text.toString()
+        var latitude: String = lattitudeSpot.text.toString()
+        var longitude: String = longitudeSpot.text.toString()
+        var deep: String = deepSpot.text.toString()
+        var description : String = descriptionSpot.text.toString()
 
         val newSpot = LocationClass("1", title, latitude, longitude, deep, description)
         val key = firebaseData.child("diving_site").push().key ?: ""
@@ -78,13 +73,13 @@ class AddSpotActivity : AppCompatActivity() {
         firebaseData.child("diving_site").child(key).setValue(newSpot)
 
         val storage_ref = storage.reference
-        var path : String? = null
-        path = id_spot + ".jpg"
+        lateinit var pathT : String
+        pathT = id_spot + ".jpg"
 
 
-        val img_ref = storage_ref.child(path)
+        val img_ref = storage_ref.child(pathT)
         image_uri?.let{
-            img_ref.child(path).putFile(it)
+            img_ref.child(pathT).putFile(it)
         }
 
     }
@@ -97,17 +92,7 @@ class AddSpotActivity : AppCompatActivity() {
 
         database.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                dataSnapshot.child("diving_site").children.forEach {
-                    val post = it.getValue(LocationClass::class.java)
-                    Log.d("lol", post?.toString())
-                    var nameSite: String? = post?.name
-                    var latitudeSite: String? = post?.latitude
-                    var longitudeSite: String? = post?.longitude
-                }
 
-                /*textViewName.text = "${}"
-                textViewLatitude.text = "${latitudeISte}"
-                textViewLongitude.text = "${longitudeSite}"*/
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -129,6 +114,7 @@ class AddSpotActivity : AppCompatActivity() {
             "Fermer",
             DialogInterface.OnClickListener { dialog, id ->
                 dialog.cancel()
+                Log.d("_test", "$id")
             })
 
         val pictureDialogItems = arrayOf(
@@ -142,9 +128,10 @@ class AddSpotActivity : AppCompatActivity() {
                 0 -> choosePhotoFromGallary()
                 1 -> takePhotoFromCamera()
             }
-
+            Log.d("_test", "$dialog")
         }
         val alert = pictureDialogBuilder.create()
+
         alert.setTitle("Veuillez faire un choix")
         alert.show()
     }
@@ -253,22 +240,22 @@ class AddSpotActivity : AppCompatActivity() {
             R.id.memo_item -> {
                 intent= Intent(this, MemoActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.perso_item -> {
                 intent= Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.feed_item -> {
                 intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.add_item -> {
                 intent= Intent(this, AddSpotActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
         }
         false

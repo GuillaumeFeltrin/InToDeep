@@ -46,11 +46,11 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
             title("Marker in Sydney").
             snippet("ceci est une description")
 
-        val info = InfoWindowData("title",
+        /*val info = InfoWindowData("title",
             "subtitle",
             "pronfondeur",
             "description"
-        )
+        )*/
 
         val customInfoWindow = CustomInfoWindowGoogleMap(this)
 
@@ -68,22 +68,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
             R.id.memo_item -> {
                 intent= Intent(this, MemoActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.perso_item -> {
                 intent= Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.feed_item -> {
                 intent= Intent(this, MapsActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.add_item -> {
                 intent= Intent(this, AddSpotActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
         }
         false

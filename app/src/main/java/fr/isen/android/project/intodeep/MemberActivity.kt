@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_member.myBackgroundLayout
 import kotlinx.android.synthetic.main.activity_memo.*
 
 
+@Suppress("NAME_SHADOWING")
 class MemberActivity : AppCompatActivity() {
 
     private val databse: FirebaseDatabase = FirebaseDatabase.getInstance()
@@ -107,9 +108,9 @@ class MemberActivity : AppCompatActivity() {
 
     private fun id_maker(mail: String): String {
         var droit:String = "@gmail.com"
-        var gauche:String = ""
+        //var gauche:String = ""
 
-        gauche = mail.substring(0,mail.length-droit.length)
+         var gauche = mail.substring(0,mail.length-droit.length)
 
         gauche = gauche.replace(".","")
 
@@ -146,22 +147,22 @@ class MemberActivity : AppCompatActivity() {
             R.id.memo_item -> {
                 intent= Intent(this, MemoActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.perso_item -> {
                 intent= Intent(this, ProfileActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.feed_item -> {
                 intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
             R.id.add_item -> {
                 intent= Intent(this, AddSpotActivity::class.java)
                 startActivity(intent)
-                true
+                //true
             }
         }
         false
