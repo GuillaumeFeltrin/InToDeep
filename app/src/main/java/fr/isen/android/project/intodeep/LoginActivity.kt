@@ -1,17 +1,15 @@
 package fr.isen.android.project.intodeep
 
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.google.android.gms.auth.api.Auth
-import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.GoogleApiClient
-import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
@@ -23,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
     var googleApiClient: GoogleApiClient? = null
     private lateinit var auth: FirebaseAuth
 
+    lateinit var frameAnimation: AnimationDrawable
+
     override fun onCreate(savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
         super.onCreate(savedInstanceState)
@@ -30,10 +30,12 @@ class LoginActivity : AppCompatActivity() {
         logInButton.setOnClickListener {
             doLogin(textInputEmail.text.toString(), textInputPassword.text.toString())
         }
+        buttonSubscription.setOnClickListener {
+            startActivity(Intent(this, RegistrationActivity::class.java))
+        }
         loginGoogleButton.setOnClickListener {
             googleLogin()
         }
-
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.request_client_id))
             .requestEmail()
@@ -43,7 +45,10 @@ class LoginActivity : AppCompatActivity() {
             .addApi(Auth.GOOGLE_SIGN_IN_API, googleSignInOptions)
             .build()
 
-
+        frameAnimation = myBackgroundLayout.getBackground() as AnimationDrawable
+        frameAnimation.setEnterFadeDuration(4500)
+        frameAnimation.setExitFadeDuration(4500)
+        frameAnimation.start()
         /*mGoogleSignInClient = GoogleSignIn.getClient(this, gso)
         val signInIntent = googleSignInClient.signInIntent
         startActivityForResult(signInIntent, RC_SIGN_IN)*/
@@ -54,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            intent = Intent(this, MainActivity::class.java)
+            intent = Intent(this, GoogleMapInfoWindowActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
             finish()
@@ -68,7 +73,7 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Log.d("testemail", "createUserWithEmail:success")
                     //val user = auth.currentUser
-                    intent = Intent(this, MainActivity::class.java)
+                    intent = Intent(this, MapsActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 } else {
@@ -112,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
             Log.i(TAG, "Firebase Authentication, is result a success? ${task.isSuccessful}.")
             if (task.isSuccessful) {
                 // Sign in success, update UI with the signed-in user's information
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, MapsActivity::class.java))
             } else {
                 // If sign in fails, display a message to the user.
                 Log.e(TAG, "Authenticating with Google credentials in firebase FAILED !!")

@@ -5,9 +5,32 @@
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDdzyDKKXhzXn9fiUBJfNjo-6VGGweVMK8</string>
     <string name="email">E-mail</string>
     <string name="password">Mot de passe</string>
+    <string name="confirm_password">Confirmer le mot de passe</string>
     <string name="connect">Connexion</string>
+    <string name="disconnect">Deconnexion</string>
+    <string name="subscription">Inscription</string>
     <string name="request_client_id">521908361420-1hacja3m1g23geukrkotue8qojko5m6b.apps.googleusercontent.com</string>
     <string name="switch_activity_button">map with loading screen</string>
     <string name="text_second_loading">brace yourself !</string>
     <string name="text_title_loading">Going into Deep !</string>
+    <string name="home">Accueil</string>
+    <string name="memo">Memo</string>
+    <string name="perso">Profil</string>
+    <string name="add">Ajouter</string>
+    <string name="signs">Les Signes</string>
+    <string name="habits">Les Bonnes Pratiques</string>
+    <string name="materials">Le Matériel</string>
+    <string name="administration">Administratif</string>
+    <string name="basics">Les Règles de Base</string>
+    <string name="submit">Ajouter un site</string>
+    <string name="name_spot">Nom du site</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="deep">Profondeur</string>
+    <string name="description">Description</string>
+    <string name="add_button_description">Ajouter une description</string>
+    <string name="add_button_advices">Ajouter un conseil</string>
+    <string name="name_advice">Nom du conseil</string>
+    <string name="authorized_category">Catégories</string>
+    <string name="description_advice">Description du conseil</string>
 </resources>

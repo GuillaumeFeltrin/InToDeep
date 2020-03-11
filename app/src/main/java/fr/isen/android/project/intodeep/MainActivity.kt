@@ -31,8 +31,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonLogin.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
+
+        buttonHome.setOnClickListener {
+            startActivity(Intent(this, HomeActivity::class.java))
         }
 
         /*button_profile.setOnClickListener{
