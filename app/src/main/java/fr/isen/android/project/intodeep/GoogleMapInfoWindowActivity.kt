@@ -44,7 +44,7 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
     var list_Loc = mutableListOf<InfoWindowData?>()
     var List_Long = mutableListOf<Double>()
     var List_Lat = mutableListOf<Double>()
-    var List_id = mutableListOf<Int>()
+    var List_id = mutableListOf<String>()
     var List_name = mutableListOf<String>()
 
     var auth: Boolean = false
@@ -77,14 +77,14 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
 
                                 info = InfoWindowData(
                                     name,
-                                    "id = $id",
-                                    "long : $long lat : $lat"
+                                    "long : $long lat : $lat",
+                                    "INCROYABLE DU CUL !"
                                 )
                             }
                             list_Loc.add(index, info)
                             List_Long.add(index, long.toDouble())
                             List_Lat.add(index, lat.toDouble())
-                            List_id.add(index, id.toInt())
+                            List_id.add(index, id)
                             List_name.add(index, name)
 
                             //Log.v("_map","list_loc : ${list_Loc[index]}")
