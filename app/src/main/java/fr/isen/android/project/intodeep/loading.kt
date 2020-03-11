@@ -18,7 +18,7 @@ class loading : AppCompatActivity() {
 
         var handler = Handler()
         handler.postDelayed(Runnable {
-            val intent = Intent(this, MapsActivity::class.java)
+            val intent = Intent(this, GoogleMapInfoWindowActivity::class.java)
             startActivity(intent)
             finish()
         }, 3000)
