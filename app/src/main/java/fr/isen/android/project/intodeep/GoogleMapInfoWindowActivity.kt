@@ -40,17 +40,21 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
     var id = "0"
     var long = "6.60222"
     var lat = "43.168611"
+    var deep="0"
+    var description ="empty"
     var index = 0
     var list_Loc = mutableListOf<InfoWindowData?>()
     var List_Long = mutableListOf<Double>()
     var List_Lat = mutableListOf<Double>()
     var List_id = mutableListOf<String>()
     var List_name = mutableListOf<String>()
+    var List_description = mutableListOf<String>()
+    var List_deep = mutableListOf<Double>()
 
     var auth: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.v("_map", "On map create")
+        //Log.v("_map", "On map create")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
         myRef.addValueEventListener(object : ValueEventListener {
@@ -74,11 +78,18 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
                                 if (child.key == "id") {
                                     id = child.value.toString()
                                 }
+                                if (child.key == "deep") {
+                                    deep = child.value.toString()
+                                }
+                                if (child.key == "description") {
+                                    description = child.value.toString()
+                                }
 
                                 info = InfoWindowData(
                                     name,
-                                    "long : $long lat : $lat",
-                                    "INCROYABLE DU CUL !"
+                                    "long : $long, lat : $lat",
+                                    "profondeur : "+deep+"m",
+                                    "$description"
                                 )
                             }
                             list_Loc.add(index, info)
@@ -86,6 +97,8 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
                             List_Lat.add(index, lat.toDouble())
                             List_id.add(index, id)
                             List_name.add(index, name)
+                            List_description.add(index,description)
+                            List_deep.add(index, deep.toDouble())
 
                             //Log.v("_map","list_loc : ${list_Loc[index]}")
                             index++
@@ -120,31 +133,17 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
 
 
         val location = LatLng(lat.toDouble(), long.toDouble())
-        /*info = InfoWindowData("title","sub","desc")
-        val markerOptions = MarkerOptions()
-        markerOptions.position(location)
-            .title("Location Details")
-            .snippet("I am custom Location Marker.")
-            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE))
-
-        val customInfoWindow = CustomInfoWindowGoogleMap(this)
-        mMap!!.setInfoWindowAdapter(customInfoWindow)
-
-        val marker = mMap!!.addMarker(markerOptions)
-        marker.tag = info
-        //marker.showInfoWindow()*/
-
         mMap!!.moveCamera(CameraUpdateFactory.newLatLng(location))
-        //Toast.makeText(applicationContext,"Pour load les points de plonger, appuyer sur la carte !", Toast.LENGTH_LONG)
+        Toast.makeText(applicationContext,"Pour load les points de plonger, appuyer sur la carte !", Toast.LENGTH_LONG).show()
     }
 
     override fun onMapClick (point : LatLng) {
-        //Toast.makeText(applicationContext,"Pour load les points de plonger, appuyer sur la carte !", Toast.LENGTH_LONG)
-        Log.v("_map", "On map click")
-        Log.v("_map", "$auth")
+       // Log.v("_map", "On map click")
+        //Log.v("_map", "$auth")
+        var lim = index-1
         if(auth) {
-            for (n in 0..3) {
-                Log.v("_map", "n : $n")
+            for (n in 0..lim) {
+               // Log.v("_map", "n : $n")
                 if (list_Loc.isNotEmpty()) {
                     if (List_Lat.isNotEmpty()) {
                         if (List_Long.isNotEmpty()) {
@@ -167,7 +166,7 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
                             mMap!!.moveCamera(CameraUpdateFactory.newLatLng(location))
                             //marker.showInfoWindow()
 
-                            Log.v("_map", "marker initialiser")
+                            //Log.v("_map", "marker initialiser")
                         } else {
                             Log.v("_map", "list_lat est vide")
                         }

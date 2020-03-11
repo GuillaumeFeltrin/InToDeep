@@ -43,6 +43,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback{
 
         val info = InfoWindowData("title",
             "subtitle",
+            "pronfondeur",
             "description"
         )
 

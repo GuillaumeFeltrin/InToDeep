@@ -3,6 +3,7 @@ package fr.isen.android.project.intodeep
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.Toast
@@ -34,20 +35,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        myRef.addValueEventListener(object : ValueEventListener{
-            override fun onDataChange(dataSnap: DataSnapshot) {
-                /*val post = dataSnap.child("diving_site").getValue()*/
-
-                for (child in dataSnap.child("diving_site").children) {
-                    //Log.v("TAG", "appel de base : $child")
-
-                }
-            }
-
-            override fun onCancelled(p0: DatabaseError) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-        })
+        /*button_profile.setOnClickListener{
+            val intent = Intent(this, profile::class.java)
+            startActivity(intent)
+        }*/
     }
 }

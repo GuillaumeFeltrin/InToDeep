@@ -7,5 +7,7 @@ data class LocationClass (
     var id: String = "",
     var name: String = "",
     var latitude: String = "",
-    var longitude: String =""
+    var longitude: String ="",
+    var description: String="",
+    var deep: String=""
 )

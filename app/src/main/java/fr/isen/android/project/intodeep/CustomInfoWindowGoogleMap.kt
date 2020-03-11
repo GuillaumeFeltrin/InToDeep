@@ -16,6 +16,7 @@ class CustomInfoWindowGoogleMap(private val context: Context) : GoogleMap.InfoWi
 
         mInfoView.marker_title.text = mInfoWindow?.title
         mInfoView.marker_subtitle.text = mInfoWindow?.subtitle
+        mInfoView.marker_deep.text = mInfoWindow?.deep
         mInfoView.marker_description.text = mInfoWindow?.description
 
         return mInfoView
@@ -24,4 +25,5 @@ class CustomInfoWindowGoogleMap(private val context: Context) : GoogleMap.InfoWi
     override fun getInfoWindow(p0: Marker?): View? {
         return null
     }
+
 }
