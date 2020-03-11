@@ -97,7 +97,7 @@ class MemberActivity : AppCompatActivity() {
         membre_email.text = mail
         membre_prenom.text = prenom
         membre_description.text = description
-        membre_niveau.text = niveau
+        membre_niveau.text = niveau.toString()
 
     }
 
@@ -107,7 +107,7 @@ class MemberActivity : AppCompatActivity() {
             "prenom"->{set_prenom(value)}
             "mail"->{set_mail(value)}
             "descritpion"->{set_descr(value)}
-            "niveau"->{set_niveau(value)}
+            "niveau"->{set_niveau(value.toString())}
             else->{Log.v("_profile", "key : $key"); return }
         }
     }
@@ -115,5 +115,5 @@ class MemberActivity : AppCompatActivity() {
     private fun set_prenom(value: String) {prenom = value}
     private fun set_mail(value: String) {mail = value}
     private fun set_descr(value: String) {description = value}
-    private fun set_niveau(value: String) {niveau = value}
+    private fun set_niveau(value: String) {niveau = value.toString()}
 }
