@@ -38,11 +38,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="157dp"
         android:ems="10"
         android:hint="Nom"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -50,7 +48,7 @@
         android:id="@+id/modifier_prenom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
+        android:layout_marginStart="41dp"
         android:layout_marginTop="30dp"
         android:ems="10"
         android:hint="Prenom"
@@ -87,11 +85,9 @@
         android:layout_marginStart="159dp"
         android:layout_marginTop="55dp"
         android:layout_marginEnd="164dp"
-        android:layout_marginBottom="280dp"
         android:background="@drawable/layout_bg"
         android:text="@string/modifications"
         android:textColor="@color/background_login_static3"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/modifie_description" />
