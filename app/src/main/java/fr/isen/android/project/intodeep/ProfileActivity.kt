@@ -31,12 +31,12 @@ class ProfileActivity : AppCompatActivity() {
                 true
             }
             R.id.perso_item -> {
-                intent= Intent(this, ProfileActivity::class.java)
+                intent= Intent(this, MemberActivity::class.java)
                 startActivity(intent)
                 true
             }
             R.id.feed_item -> {
-                intent= Intent(this, MapsActivity::class.java)
+                intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
                 startActivity(intent)
                 true
             }

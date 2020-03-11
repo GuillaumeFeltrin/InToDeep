@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="fr.isen.android.project.intodeep" >
+    package="fr.isen.android.project.intodeep">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -16,9 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning" >
-        <activity android:name=".AddAdviceActivity" >
-        </activity>
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MemberActivity"></activity>
+        <activity android:name=".AddAdviceActivity"></activity>
         <activity
             android:name=".AddSpotActivity"
             android:label="@string/add" />
@@ -45,7 +45,7 @@
         <activity android:name=".loading" />
         <activity
             android:name=".LoginActivity"
-            android:label="@string/connect" >
+            android:label="@string/connect">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
