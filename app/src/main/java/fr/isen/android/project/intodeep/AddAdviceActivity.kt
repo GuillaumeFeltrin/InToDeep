@@ -32,7 +32,7 @@ class AddAdviceActivity : AppCompatActivity() {
         frameAnimation.start()
     }
 
-    fun addAdviceToDatabase(firebaseData: DatabaseReference) {
+    /*fun addAdviceToDatabase(firebaseData: DatabaseReference) {
 
         var name: String? = null
         var category: String? = null
@@ -60,7 +60,7 @@ class AddAdviceActivity : AppCompatActivity() {
 
     fun addListenerOnCheckButtons(){
 
-    }
+    }*/
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
