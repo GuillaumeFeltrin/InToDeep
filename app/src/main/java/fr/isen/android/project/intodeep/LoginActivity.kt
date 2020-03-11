@@ -117,7 +117,7 @@ class LoginActivity : AppCompatActivity() {
             Log.i(TAG, "Firebase Authentication, is result a success? ${task.isSuccessful}.")
             if (task.isSuccessful) {
                 // Sign in success, update UI with the signed-in user's information
-                startActivity(Intent(this, MapsActivity::class.java))
+                startActivity(Intent(this, loading::class.java))
             } else {
                 // If sign in fails, display a message to the user.
                 Log.e(TAG, "Authenticating with Google credentials in firebase FAILED !!")

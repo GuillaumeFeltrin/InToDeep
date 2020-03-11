@@ -5,5 +5,6 @@ data class ProfileCLass(
     val prenom:String="",
     val mail:String="",
     val niveau:String="",
-    val description:String=""
+    val description:String="",
+    val password:String=""
 )

@@ -32,7 +32,7 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
     override fun onMapLoaded() {
         Log.v("_map","on map loaded")
     }
-
+    lateinit var toolbar: ActionBar
     private var mMap: GoogleMap? = null
     private val databse: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val myRef: DatabaseReference = databse.getReference()
@@ -54,8 +54,6 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
     var List_deep = mutableListOf<Double>()
 
     var auth: Boolean = false
-
-    lateinit var toolbar:ActionBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         //Log.v("_map", "On map create")
@@ -96,8 +94,8 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
 
                                 info = InfoWindowData(
                                     name,
-                                    "long : $long, lat : $lat",
-                                    "profondeur : "+deep+"m",
+                                    "$lat, $long",
+                                    "Profondeur : "+deep+"m",
                                     "$description"
                                 )
                             }

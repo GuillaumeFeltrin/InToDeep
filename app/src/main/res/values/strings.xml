@@ -31,6 +31,7 @@
     <string name="add_button_description">Ajouter une description</string>
     <string name="add_button_advices">Ajouter un conseil</string>
     <string name="name_advice">Nom du conseil</string>
-    <string name="authorized_category">Catégories</string>
+    <string name="category">Catégorie</string>
+    <string name="authorized_category">Catégories autorisées : administratif et pratiques</string>
     <string name="description_advice">Description du conseil</string>
 </resources>

@@ -17,8 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MemberActivity"></activity>
-        <activity android:name=".AddAdviceActivity"></activity>
+        <activity android:name=".ModifieMembreActivity"></activity>
+        <activity android:name=".MemberActivity" />
+        <activity android:name=".AddAdviceActivity" />
         <activity
             android:name=".AddSpotActivity"
             android:label="@string/add" />

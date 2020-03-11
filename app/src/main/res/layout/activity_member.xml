@@ -6,4 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".MemberActivity">
 
+    <TextView
+        android:id="@+id/membre_nom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="15dp"
+        android:text="nom"
+        app:layout_constraintBottom_toTopOf="@+id/membre_prenom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="nom" />
+
+    <TextView
+        android:id="@+id/membre_prenom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="15dp"
+        android:text="prenom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/membre_nom"
+        tools:text="prenom" />
+
+    <TextView
+        android:id="@+id/membre_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/membre_prenom"
+        tools:text="@string/email" />
+
+    <ImageView
+        android:id="@+id/membre_image"
+        android:layout_width="142dp"
+        android:layout_height="124dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="21dp"
+        app:layout_constraintBottom_toTopOf="@+id/membre_niveau"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bibiphoque"
+        tools:srcCompat="@drawable/bibiphoque" />
+
+    <TextView
+        android:id="@+id/membre_niveau"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="60dp"
+        android:text="niveau"
+        app:layout_constraintBottom_toTopOf="@+id/member_modify_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/membre_image"
+        tools:text="niveau" />
+
+    <TextView
+        android:id="@+id/membre_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="20dp"
+        android:text="description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/membre_email"
+        tools:text="description" />
+
+    <Button
+        android:id="@+id/member_modify_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="129dp"
+        android:layout_marginEnd="162dp"
+        android:text="Modifier vos données"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.418"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/membre_description" />
+
+    <Button
+        android:id="@+id/button_voila_il_est_tard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="161dp"
+        android:text="DECONNEXION"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/member_modify_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
