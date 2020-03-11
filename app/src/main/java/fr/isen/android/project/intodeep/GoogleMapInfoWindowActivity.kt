@@ -145,7 +145,7 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
     }
 
     override fun onMapClick (point : LatLng) {
-       // Log.v("_map", "On map click")
+        Log.v("_map", "On map click")
         //Log.v("_map", "$auth")
         var lim = index-1
         if(auth) {
@@ -196,7 +196,7 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
                 true
             }
             R.id.perso_item -> {
-                intent= Intent(this, ProfileActivity::class.java)
+                intent= Intent(this, MemberActivity::class.java)
                 startActivity(intent)
                 true
             }
