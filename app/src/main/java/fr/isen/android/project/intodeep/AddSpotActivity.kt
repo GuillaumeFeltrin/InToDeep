@@ -18,13 +18,10 @@ import androidx.appcompat.app.ActionBar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import fr.isen.android.project.intodeep.classes.LocationClass
 import kotlinx.android.synthetic.main.activity_add_spot.*
-import kotlinx.android.synthetic.main.activity_add_spot.bottom_nav_bar
-import kotlinx.android.synthetic.main.activity_memo.*
 
 class AddSpotActivity : AppCompatActivity() {
 
@@ -48,7 +45,7 @@ class AddSpotActivity : AppCompatActivity() {
         storage = FirebaseStorage.getInstance()
         database = FirebaseDatabase.getInstance().reference
 
-        addManuallySpot()
+        //addManuallySpot()
 
         pictureButton.setOnClickListener{
             showPictureDialog()
@@ -56,7 +53,7 @@ class AddSpotActivity : AppCompatActivity() {
 
         buttonSubmit.setOnClickListener{
             addToDatabase(database)
-            intent= Intent(this, MapsActivity::class.java)
+            intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
             startActivity(intent)
         }
     }
@@ -263,7 +260,7 @@ class AddSpotActivity : AppCompatActivity() {
                 true
             }
             R.id.feed_item -> {
-                intent= Intent(this, MapsActivity::class.java)
+                intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
                 startActivity(intent)
                 true
             }

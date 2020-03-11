@@ -1,5 +1,6 @@
 package fr.isen.android.project.intodeep
 
+import android.content.Intent
 import android.icu.text.IDNA
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
@@ -23,14 +24,15 @@ import com.google.firebase.database.FirebaseDatabase.getInstance as getInstance1
 import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-
+import androidx.appcompat.app.ActionBar
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCallback, GoogleMap.OnMapClickListener, OnMapReadyCallback {
     override fun onMapLoaded() {
         Log.v("_map","on map loaded")
     }
-
+    lateinit var toolbar: ActionBar
     private var mMap: GoogleMap? = null
     private val databse: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val myRef: DatabaseReference = databse.getReference()
@@ -57,6 +59,11 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
         //Log.v("_map", "On map create")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
+        toolbar = supportActionBar!!
+        val bottomNavigation: BottomNavigationView = findViewById(R.id.bottom_nav_bar)
+        bottomNavigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnap: DataSnapshot) {
                 myRef.addValueEventListener(object : ValueEventListener {
@@ -87,8 +94,8 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
 
                                 info = InfoWindowData(
                                     name,
-                                    "long : $long, lat : $lat",
-                                    "profondeur : "+deep+"m",
+                                    "$lat, $long",
+                                    "Profondeur : "+deep+"m",
                                     "$description"
                                 )
                             }
@@ -179,5 +186,31 @@ class GoogleMapInfoWindowActivity : AppCompatActivity(), GoogleMap.OnMapLoadedCa
 
             }
         }
+    }
+
+    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        when (item.itemId) {
+            R.id.memo_item -> {
+                intent= Intent(this, MemoActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.perso_item -> {
+                intent= Intent(this, ProfileActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.feed_item -> {
+                intent= Intent(this, GoogleMapInfoWindowActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            R.id.add_item -> {
+                intent= Intent(this, AddSpotActivity::class.java)
+                startActivity(intent)
+                true
+            }
+        }
+        false
     }
 }
