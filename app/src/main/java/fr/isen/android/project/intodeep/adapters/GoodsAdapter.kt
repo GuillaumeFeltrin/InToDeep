@@ -25,6 +25,6 @@ class GoodsAdapter(val items : ArrayList<String>, val items2 : ArrayList<String>
 }
 
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
-    val adviceName = view.adviceName
-    val adviceDescription = view.adviceDescription
+    val adviceName = view.basicsName
+    val adviceDescription = view.basicsDescription
 }

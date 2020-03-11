@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import fr.isen.android.project.intodeep.adapters.AdminAdapter
+import kotlinx.android.synthetic.main.activity_admin.*
 import kotlinx.android.synthetic.main.activity_material.*
 import kotlinx.android.synthetic.main.activity_memo.myBackgroundLayout
 
@@ -33,9 +34,9 @@ class AdminActivity : AppCompatActivity() {
         frameAnimation.start()
 
         addAdmin()
-        rvMaterials.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        rvMaterials.layoutManager = GridLayoutManager(this, 1)
-        rvMaterials.adapter = AdminAdapter(admin, this)
+        rvAdmin.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+        rvAdmin.layoutManager = GridLayoutManager(this, 1)
+        rvAdmin.adapter = AdminAdapter(admin, this)
     }
 
     private fun addAdmin(){

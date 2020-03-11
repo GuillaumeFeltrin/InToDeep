@@ -17,10 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".AdminActivity"></activity>
+        <activity android:name=".BasicsActivity"/>
+        <activity android:name=".AdminActivity" />
         <activity android:name=".MaterialActivity" />
         <activity android:name=".GoodsActivity" />
-        <activity android:name=".AddAdviceActivity" />
         <activity
             android:name=".AddSpotActivity"
             android:label="@string/add" />
@@ -40,14 +40,12 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" /> <!-- android:theme="@style/AppTheme" -->
-        <activity android:name=".NewLocationActivity" />
         <activity
             android:name=".RegistrationActivity"
             android:label="@string/subscription" />
         <activity android:name=".loading" />
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/connect">
+            android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

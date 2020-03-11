@@ -35,6 +35,14 @@ class MemoActivity : AppCompatActivity() {
         buttonMaterials.setOnClickListener {
             startActivity(Intent(this, MaterialActivity::class.java))
         }
+
+        buttonAdmin.setOnClickListener {
+            startActivity(Intent(this, AdminActivity::class.java))
+        }
+
+        buttonHabits.setOnClickListener {
+            startActivity(Intent(this, BasicsActivity::class.java))
+        }
     }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
